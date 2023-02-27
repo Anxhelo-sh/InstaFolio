@@ -1,0 +1,35 @@
+/* Main Colors For Website*/
+
+:root{
+    --main-bg-color: #000000;
+    --top-nav-heigh: 1.3rem;
+    --component-margin : 8px;
+}
+
+.bottom-nav{
+    background-color: var(--main-bg-color);
+    -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(20px);
+    padding: 0 20px;
+    height: 3rem;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    align-content: center;
+    color: white;;
+}
+.nav-bootom-icon{
+    color: white;
+    width: 30px;
+    text-decoration: none;
+}
+.nav-user{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}
+
+
