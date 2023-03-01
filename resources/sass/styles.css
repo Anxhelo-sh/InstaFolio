@@ -32,4 +32,10 @@
     border-radius: 50%;
 }
 
-
+.svg-icons{
+    width: 25px;
+}
+.posts-container{
+    width: 100%;
+    margin-left: 0 !important;
+}

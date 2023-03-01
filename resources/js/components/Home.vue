@@ -1,9 +1,9 @@
 <template>
     <NavigationBar></NavigationBar>
     <Stories></Stories>
-    <Post></Post>
-    <Post></Post>
-    <Post></Post>
+    <div v-for="project in projects" :key="project.id">
+        <Post :project="project"></Post>
+    </div>
 </template>
 
 <script>
@@ -13,7 +13,8 @@ import Post from "./Feed/Post";
 
 export default {
     name: "Home",
-    components:{
+    props: ['projects'],
+    components: {
         NavigationBar,
         Stories,
         Post

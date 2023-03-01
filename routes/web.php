@@ -1,6 +1,5 @@
 <?php
 
-use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\StoryController;
@@ -23,9 +22,9 @@ Auth::routes();
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/home', [HomeController::class, 'index'])->name('home.index');
 Route::get('/user-profile', [UserProfileController::class, 'index'])->name('user-profile.index');
+Route::resource('/projects',ProjectController::class);
 
 Route::middleware(['auth'])->group(function () {
-    Route::resource('/projects',ProjectController::class);
     Route::resource('/stories',StoryController::class);
 });
 

@@ -54,9 +54,9 @@ class ProjectController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Project $project): Response
+    public function show(Project $project): \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
     {
-        //
+        return view('projects.show', ['project' => $project]);
     }
 
     /**

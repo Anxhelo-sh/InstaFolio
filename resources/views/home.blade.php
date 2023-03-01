@@ -1,5 +1,5 @@
 @extends('layouts.app')
 
 @section('content')
-    <home></home>
+    <home :projects="{{ $projects }}"></home>
 @endsection

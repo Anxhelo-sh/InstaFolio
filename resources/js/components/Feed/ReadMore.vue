@@ -1,21 +1,18 @@
 <template>
     <div>
-        <span v-if="!readMoreActivated">{{ longText.slice(0, 75) }}   </span>
+        <span v-if="!readMoreActivated">{{ text.slice(0, 75) }}   </span>
         <a class="more" v-if="!readMoreActivated" @click="activateReadMore" href="#">
             ... more
         </a>
-        <span v-if="readMoreActivated" v-html="longText"></span>
+        <span v-if="readMoreActivated" v-html="text"></span>
     </div>
 </template>
 <script>
 export default {
     name: "Readmore",
+    props: ['text'],
     data() {
         return {
-            longText: `Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita harum illum magnam non?
-            Fugit inventore saepe tempore totam voluptate.
-             Commodi dolor doloremque illum incidunt laborum molestiae nesciunt odio voluptatem voluptatum!
-`,
             readMoreActivated: false
         }
     },

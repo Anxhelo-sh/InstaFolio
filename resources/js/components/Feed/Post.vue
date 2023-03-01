@@ -6,7 +6,7 @@
                     <img class="post-thumbnail" src="/storage/images/posts/post-header.png" alt="post-thumbnail">
                 </div>
                 <div>
-                    ngopmedia
+                    {{ project.user.name }}
                 </div>
             </div>
 
@@ -53,7 +53,7 @@
                 </div>
             </div>
             <div class="description mb-1" >
-                <ReadMore :text="msg" link="#" less-str="read less" :max-chars="50"></ReadMore>
+                <ReadMore :text="project.description" link="#" less-str="read less" :max-chars="50"></ReadMore>
             </div>
             <div class="comments mb-1">
                 view all 343 comments
@@ -66,7 +66,7 @@
                 <div></div>
             </div>
             <div class="comments">
-                2 hours ago
+                {{ created_at }}
             </div>
         </div>
     </div>
@@ -74,17 +74,21 @@
 
 <script>
 import ReadMore from "./ReadMore";
+import moment from 'moment';
 
 export default {
     name: "Post",
+    props: ['project'],
     components:{
         ReadMore,
     },
     data () {
         return {
-            msg: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.',
-            msg2: 'Lorem ipsum dolor sit amet'
+            created_at : "",
         }
+    },
+    mounted(){
+        this.created_at = moment(this.project.created_at).fromNow()
     }
 }
 </script>

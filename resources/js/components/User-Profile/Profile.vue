@@ -96,7 +96,7 @@
         <div class="content">
             <div class="row">
                 <div v-for="project in projects" :key="project.id" class="col-4 post-container">
-                    <a :href="'/project/'+ project.id">
+                    <a :href="'/projects/'+ project.id">
                         <img class="post-user" :src="Object.values(JSON.parse(project.images))[0]" alt="post">
                     </a>
                 </div>
