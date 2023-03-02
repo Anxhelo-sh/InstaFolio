@@ -36,12 +36,17 @@
                     <div v-else class="fw-bold">Project</div>
                 </div>
                 <div class="d-flex justify-content-between align-content-center align-items-center flex-column">
-                    <div>1 Year</div>
+                    <div>
+                        <span class="px-1">{{ user.experience }}</span>
+                        <span v-if="user.experience == 1">Year</span>
+                        <span v-else>Years</span>
+                    </div>
                     <div class="fw-bold">Experience</div>
                 </div>
                 <div class="d-flex justify-content-between align-content-center align-items-center flex-column">
-                    <div>1,234</div>
-                    <div class="fw-bold">Followers</div>
+                    <div>{{ followers.length }}</div>
+                    <div v-if="followers.length === 1" class="fw-bold">Follower</div>
+                    <div v-else class="fw-bold">Followers</div>
                 </div>
             </div>
         </div>
@@ -113,7 +118,7 @@ import Menu from "../User-Profile/Menu"
 
 export default {
     name: "Profile",
-    props: ['user', 'projects'],
+    props: ['user', 'projects', 'followers'],
     components:{
         ReadMore,
         Stories,

@@ -47,4 +47,19 @@ class User extends Authenticatable
     {
         return $this->hasMany(Project::class);
     }
+
+    public function stories(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany(Story::class);
+    }
+
+    public function followers(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany(Follower::class, 'acceptor');
+    }
+
+    public function follows(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany(Follower::class, 'donor');
+    }
 }

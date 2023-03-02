@@ -1,13 +1,16 @@
 <template>
     <div class="stories">
         <carousel :items-to-show="settings.itemsToShow" :wrap-around="false">
-            <slide v-for="slide in slides" :key="slide">
-                <img class="slideIMG" :src="slide" alt="s1">
+            <slide v-for="slide in stories" :key="slide.id" @click="activateStory(slide)">
+                <img class="slideIMG" :src="slide.content" alt="s1">
                 <div class="text-white story-name">
                     story
                 </div>
             </slide>
         </carousel>
+    </div>
+    <div v-if="activeStory" class="active-story w-100 bg-white">
+        Story
     </div>
 </template>
 
@@ -17,11 +20,18 @@ import {Carousel, Slide, Pagination, Navigation} from 'vue3-carousel'
 
 export default {
     name: "Stories",
+    props:['stories'],
     components: {
         Carousel,
         Slide,
         Pagination,
         Navigation,
+    },
+    methods:{
+        activateStory(slide){
+            this.activeStory = true;
+            console.log(slide, this.stories);
+        }
     },
     setup() {
         return {
@@ -30,14 +40,7 @@ export default {
                 itemsToShow: 4,
                 snapAlign: "left"
             },
-            slides: [
-                "/storage/images/stories/first.png",
-                "/storage/images/stories/first.png",
-                "/storage/images/stories/first.png",
-                "/storage/images/stories/first.png",
-                "/storage/images/stories/first.png",
-                "/storage/images/stories/first.png",
-            ],
+            activeStory : false,
             // breakpoints are mobile first
             // any settings not specified will fallback to the carousel settings
             breakpoints: {
@@ -78,5 +81,7 @@ export default {
 }
 .story-name{
     font-size: 14px;
+}
+.carousel__track{
 }
 </style>

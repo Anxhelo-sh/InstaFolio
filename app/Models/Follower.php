@@ -5,9 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Story extends Model
+class Follower extends Model
 {
     use HasFactory;
+
+    protected $guarded = [];
 
     public function user(): \Illuminate\Database\Eloquent\Relations\BelongsTo
     {

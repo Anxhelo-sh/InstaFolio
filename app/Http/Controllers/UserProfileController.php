@@ -20,17 +20,20 @@ class UserProfileController extends Controller
             if ($user !== null)
             {
                 return view('user-profile.index', [
-                    'user' => $user,
-                    'projects' => $user->projects
+                    'user'      => $user,
+                    'projects'  => $user->projects,
+                    'followers' => $user->followers
                 ]);
             }
         }
 
         $user = Auth::user();
+
         if ($user !== null) {
             return view('user-profile.index', [
                 'user'     => $user,
-                'projects' => $user->projects
+                'projects' => $user->projects,
+                'followers' => $user->followers
             ]);
         }
         return redirect()->route('login');
